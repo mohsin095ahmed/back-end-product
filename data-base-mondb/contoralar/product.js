@@ -5,7 +5,7 @@ import Product from "../model/product.js";
 export const getAll = async()=>{
     try{
         const allproduct = await Product.find();
-        console.log(   "hshhs",await allproduct)
+        //console.log(   "hshhs",await allproduct)
         return allproduct;
     }catch(err){
 
@@ -29,7 +29,7 @@ export const findProduct =({id})=>{
 export const deleteproduct = async(productid)=>{
     try{
        const reponese = await Product.deleteOne({_id:productid});
-       console.log(reponese);
+       //console.log(reponese);
        return reponese;
     }catch(err){
       console.log(err)

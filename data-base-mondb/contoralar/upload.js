@@ -29,14 +29,18 @@ export default upload;
  export const addimage = ()=>{ return  new Promise ((reslove, reject )=>{
   fs.readdirSync("images").forEach(  (file) => {
             cloudinary.v2.uploader.upload(`images/${file}`, (error, result)=>{
-                      
+                  //    console.log("res--->", result, error) 
                 fs.remove(`images/${file}`,err =>{
                     if(err){
                       reject(err)
+                     
                     }
                 })
-                if(result.url){
-                  reslove(result.url)
+                //console.log("url", result)
+                if(error){
+                  reject(error)
+                }else{
+                 reslove(result.url)
                 }
                 
                 
